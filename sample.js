@@ -1,8 +1,8 @@
-const fs = require("fs");
-const csv = require("csv");
+import { createReadStream } from "fs";
+import { parse } from "csv";
 
-fs.createReadStream("./test.csv").pipe(
-	csv.parse({ columns: true }, function (err, data) {
+createReadStream("./test.csv").pipe(
+	parse({ columns: true }, function (err, data) {
 		const keysname = Object.keys(data[0]);
 
 		const Array = [];
